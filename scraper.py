@@ -2,12 +2,11 @@
 # including some code snippets below that you should find helpful
 import scraperwiki
 import lxml.html
-import mechanize
 import urlparse
 import scraperwiki
 import urllib2
 import lxml.etree
-
+import mechanize
 
 number = 1
 

@@ -90,7 +90,7 @@ def scrape_and_look_for_next_link(url):
     next_link = 1 + next_link
     print next_link
     if next_link < 744:
-        next_url = urlparse.urljoin(base_url, next_link)
+        next_url = urlparse.urljoin(base_url, 'GetCaseInformation.aspx?db=garfield&number=CF-2011-', next_link)
         print next_url
         scrape_and_look_for_next_link(next_url)
 

@@ -103,7 +103,7 @@ def scrape_and_look_for_next_link(url):
 # call a function to scrape the first page in the series.
 # ---------------------------------------------------------------------------
 base_url = 'http://www.oscn.net/dockets/'
-starting_url = urlparse.urljoin(base_url, next_link)
+starting_url = urlparse.urljoin(base_url, 'GetCaseInformation.aspx?db=garfield&number=CF-2011-1')
 print starting_url
 Add_Case_No(next_link)
 scrape_and_look_for_next_link(starting_url)     

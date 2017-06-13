@@ -1,9 +1,109 @@
 # This is a template for a Python scraper on morph.io (https://morph.io)
 # including some code snippets below that you should find helpful
+import scraperwiki
+import lxml.html
+import mechanize
+import urlparse
+import scraperwiki
+import urllib2
+import lxml.etree
 
-# import scraperwiki
-# import lxml.html
-#
+
+number = 1
+
+def scrape_table(root):
+    #grab all table rows <tr> in table class="tblSearchResults"
+    rows = root.cssselect("table.caseStyle tr")
+    #create a record to hold the data
+    record = {}
+    #for each row, loop through this
+    for row in rows:
+        #create a list of all cells <td> in that row
+        table_cells = row.cssselect("td")
+        if table_cells: 
+        #if there is a cell, record the contents in our dataset, the first cell [0] in 'recipient' and so on
+            record['Case Style'] = table_cells[0].text_content()
+            record['Date Filed and Judge'] = table_cells[1].text_content()
+            record['Case Number'] = table_cells.xpath(//b)
+            #this line adds 1 to the ID no. we set at 0 earlier
+            #idno=idno+1
+            #record['ID'] = idno 
+            print record, '------------'
+    rows2 = root.cssselect("table.CountDescription tr")
+    #create a record to hold the data
+    #record = {}
+    #for each row, loop through this
+    for row in rows2:
+        #create a list of all cells <td> in that row
+        table_cells = row2.cssselect("td")
+        if table_cells: 
+        #if there is a cell, record the contents in our dataset, the first cell [0] in 'recipient' and so on
+            record['Charge'] = table_cells.text_content()
+            #record['Date Filed and Judge'] = table_cells[1].text_content()
+            #this line adds 1 to the ID no. we set at 0 earlier
+            #idno=idno+1
+            #record['ID'] = idno 
+            print record, '------------'
+            # Save the record to the datastore - 'ID' is our unique key - 
+            scraperwiki.sqlite.save(["Case Number"], record)
+           
+            
+
+
+
+'''br = mechanize.Browser()
+br.set_handle_robots( False )
+br.open("http://www.oscn.net/dockets/Search.aspx")
+for f in br.forms():
+    print f
+
+formcount=0
+for frm in br.forms():  
+    if frm.attrs[class] == "search-form":
+        break
+        formcount=formcount+1
+        br.select_form(nr=formcount)
+#br.select_form('form')
+        br.form[ 'db' ] = ['garfield',]
+
+#Get the search results
+
+        br.submit()
+
+br.select_form(nr=0)
+print br.form
+br['db'] = ['garfield']
+br['dcct'] = ['31']
+br['FiledDateL'] = str('01/01/2011')
+print br
+response = br.submit()
+print response
+html = response.read()
+print html
+root = lxml.html.fromstring(html)
+scrape_table(root)'''
+
+def scrape_and_look_for_next_link(url):
+    html = scraperwiki.scrape(url)
+    print html
+    root = lxml.html.fromstring(html)
+    scrape_table(root)
+    next_link = 1 + next_link
+    print next_link
+    if next_link < 744:
+        next_url = urlparse.urljoin(base_url, next_link)
+        print next_url
+        scrape_and_look_for_next_link(next_url)
+
+# ---------------------------------------------------------------------------
+# START HERE: define your starting URL - then 
+# call a function to scrape the first page in the series.
+# ---------------------------------------------------------------------------
+base_url = 'http://www.oscn.net/dockets/GetCaseInformation.aspx?db=garfield&number=CF-2011-'
+starting_url = urlparse.urljoin(base_url, next_link)
+scrape_and_look_for_next_link(starting_url)     
+    
+    
 # # Read in a page
 # html = scraperwiki.scrape("http://foo.com")
 #

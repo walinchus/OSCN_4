@@ -23,7 +23,7 @@ def scrape_table(root):
         #if there is a cell, record the contents in our dataset, the first cell [0] in 'recipient' and so on
             record['Case Style'] = table_cells[0].text_content()
             record['Date Filed and Judge'] = table_cells[1].text_content()
-            record['Case Number'] = table_cells.xpath('.//b')
+            record['Case Number'] = table_cells[0].strong.text_content()
             #this line adds 1 to the ID no. we set at 0 earlier
             #idno=idno+1
             #record['ID'] = idno 

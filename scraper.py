@@ -85,15 +85,16 @@ scrape_table(root)'''
 def Add_Case_No(next_link):
     return next_link + 1
     print "the next case number is:", next_link
+    next_link = 'GetCaseInformation.aspx?db=garfield&number=CF-2011-' + str(next_link)
 
 def scrape_and_look_for_next_link(url):
     html = scraperwiki.scrape(url)
-    print html
+    #print html
     root = lxml.html.fromstring(html)
     scrape_table(root)
 
     if next_link < 744:
-        next_url = urlparse.urljoin(base_url, 'GetCaseInformation.aspx?db=garfield&number=CF-2011-', next_link)
+        next_url = urlparse.urljoin(base_url, next_link)
         print next_url
         scrape_and_look_for_next_link(next_url)
 

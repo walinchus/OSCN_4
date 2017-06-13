@@ -82,15 +82,16 @@ print html
 root = lxml.html.fromstring(html)
 scrape_table(root)'''
 
+def Add_Case_No(next_link):
+    return next_link + 1
+    print "the next case number is:", next_link
+
 def scrape_and_look_for_next_link(url):
     html = scraperwiki.scrape(url)
     print html
     root = lxml.html.fromstring(html)
     scrape_table(root)
-    global next_link
-    next_link = 1 + next_link
-    return next_link
-    print next_link
+
     if next_link < 744:
         next_url = urlparse.urljoin(base_url, 'GetCaseInformation.aspx?db=garfield&number=CF-2011-', next_link)
         print next_url
@@ -103,6 +104,7 @@ def scrape_and_look_for_next_link(url):
 base_url = 'http://www.oscn.net/dockets/'
 starting_url = urlparse.urljoin(base_url, 'GetCaseInformation.aspx?db=garfield&number=CF-2011-1')
 print starting_url
+Add_Case_No(next_link)
 scrape_and_look_for_next_link(starting_url)     
     
     

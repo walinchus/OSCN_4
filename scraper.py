@@ -87,6 +87,7 @@ def scrape_and_look_for_next_link(url):
     print html
     root = lxml.html.fromstring(html)
     scrape_table(root)
+    global next_link
     next_link = 1 + next_link
     print next_link
     if next_link < 744:

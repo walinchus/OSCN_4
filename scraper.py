@@ -8,7 +8,7 @@ import urllib2
 import lxml.etree
 import mechanize
 
-next_link = 1
+#next_link = 0
 
 def scrape_table(root):
     #grab all table rows <tr> in table class="tblSearchResults"
@@ -99,7 +99,7 @@ def scrape_and_look_for_next_link(url):
 # call a function to scrape the first page in the series.
 # ---------------------------------------------------------------------------
 base_url = 'http://www.oscn.net/dockets/GetCaseInformation.aspx?db=garfield&number=CF-2011-'
-starting_url = urlparse.urljoin(base_url, next_link)
+starting_url = urlparse.urljoin(base_url, 1)
 scrape_and_look_for_next_link(starting_url)     
     
     

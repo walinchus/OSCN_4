@@ -89,6 +89,7 @@ def scrape_and_look_for_next_link(url):
     scrape_table(root)
     global next_link
     next_link = 1 + next_link
+    return next_link
     print next_link
     if next_link < 744:
         next_url = urlparse.urljoin(base_url, 'GetCaseInformation.aspx?db=garfield&number=CF-2011-', next_link)

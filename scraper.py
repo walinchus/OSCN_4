@@ -34,10 +34,10 @@ def scrape_table(root):
     #for each row, loop through this
     for row2 in rows2[0:-1]:
         #create a list of all cells <td> in that row
-        table_cells = row2.cssselect("td")
-        if table_cells: 
+        table_cells2 = row2.cssselect("td")
+        if table_cells2: 
         #if there is a cell, record the contents in our dataset, the first cell [0] in 'recipient' and so on
-            record['Charge'] = table_cells.text_content()
+            record['Charge'] = table_cells2.text_content()
             #record['Date Filed and Judge'] = table_cells[1].text_content()
             #this line adds 1 to the ID no. we set at 0 earlier
             #idno=idno+1

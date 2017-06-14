@@ -35,7 +35,7 @@ def scrape_table(root):
     for row in rows:
         #create a list of all cells <td> in that row
         table_cells = row.cssselect("td")
-        print table_cells
+        if table_cells:
         for x in table_cells:
             print x.text_content()
         #if there is a cell, record the contents in our dataset, the first cell [0] in 'recipient' and so on

@@ -36,8 +36,8 @@ def scrape_table(root):
             #create a list of all cells <td> in that row
             table_cells = row.cssselect("td")
             if table_cells:
-                record['Charge1'] = table_cells[0].textcontent()
-                record['Charge2'] = table_cells[1].textcontent()
+                record['Charge1'] = table_cells[0].text_content()
+                record['Charge2'] = table_cells[1].text_content()
                 '''for EachCharge in table_cells:
                 #if there is a cell, record the contents in our dataset, the first cell [0] in 'recipient' and so on
                     record['Charge1'] = EachCharge[0].text_content() 

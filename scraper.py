@@ -108,10 +108,9 @@ scrape_table(root)'''
     return next_link    
     print next_link'''
 
-global next_link
-next_link = 0
+
 def scrape_and_look_for_next_link(url):
-    for i in range(1,744):
+    for next_link in range(1,744):
         html = scraperwiki.scrape(url)
         #print html
         root = lxml.html.fromstring(html)
@@ -120,7 +119,6 @@ def scrape_and_look_for_next_link(url):
             #print next_link
         #Add_Case_No()
         #print next_link
-        next_link= next_link + i 
         print next_link
         next_url = base_url+'GetCaseInformation.aspx?db=garfield&number=CF-2011-'+str(next_link)
         print next_url

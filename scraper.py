@@ -30,7 +30,8 @@ def scrape_table(root):
             print record, '------------'
     charges = root.cssselect("table.Counts")
     record['Charges'] = charges[0].text_content()
-
+    scraperwiki.sqlite.save(['Date Filed and Judge'], record)
+    
 '''rows = root.cssselect("table.Counts tr")
     #create a record to hold the data
     #record = {}
@@ -48,7 +49,7 @@ def scrape_table(root):
                 #record['ID'] = idno 
                 print record, '------------'
                 # Save the record to the datastore - 'ID' is our unique key - '''
-    scraperwiki.sqlite.save(['Date Filed and Judge'], record)
+    
            
             
 

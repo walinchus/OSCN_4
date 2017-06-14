@@ -99,7 +99,8 @@ def Add_Case_No():
         global next_link
         nextlink = 0
         next_link= next_link + i
-    return next_link
+    return next_link    
+    print next_link
 
 def scrape_and_look_for_next_link(url):
     html = scraperwiki.scrape(url)
@@ -121,7 +122,7 @@ def scrape_and_look_for_next_link(url):
 base_url = 'http://www.oscn.net/dockets/'
 starting_url = urlparse.urljoin(base_url, 'GetCaseInformation.aspx?db=garfield&number=CF-2011-1')
 print starting_url
-scrape_and_look_for_next_link(starting_url)     
+scrape_and_look_for_next_link(next_url)     
     
     
 # # Read in a page

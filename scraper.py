@@ -35,7 +35,7 @@ def scrape_table(root):
     for row in rows2:
         #create a list of all cells <td> in that row
         table_cells = row2.cssselect("td")
-        if table_cells: 
+        for table_cells(0:): 
         #if there is a cell, record the contents in our dataset, the first cell [0] in 'recipient' and so on
             record['Charge'] = table_cells.text_content()
             #record['Date Filed and Judge'] = table_cells[1].text_content()
@@ -44,7 +44,7 @@ def scrape_table(root):
             #record['ID'] = idno 
             print record, '------------'
             # Save the record to the datastore - 'ID' is our unique key - 
-            scraperwiki.sqlite.save(['Date Filed and Judge'], record)
+     scraperwiki.sqlite.save(['Date Filed and Judge'], record)
            
             
 

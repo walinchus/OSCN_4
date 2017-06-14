@@ -127,7 +127,7 @@ def scrape_and_look_for_next_link(url):
 base_url = 'http://www.oscn.net/dockets/'
 starting_url = urlparse.urljoin(base_url, 'GetCaseInformation.aspx?db=garfield&number=CF-2011-1')
 print starting_url
-#global i
+global i
 #for i in range(1,10):
     #There are 743 cases but 468 appears to be the server request limit
 scrape_and_look_for_next_link(starting_url)     

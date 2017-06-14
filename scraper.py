@@ -115,10 +115,11 @@ def scrape_and_look_for_next_link(url):
     root = lxml.html.fromstring(html)
     scrape_table(root)
     global i
-    i = (i + 1)  
-    next_url = base_url+'GetCaseInformation.aspx?db=garfield&number=CF-2011-'+str(i)
-    print next_url
-    scrape_and_look_for_next_link(next_url)
+    i = (i + 1)
+    if i < 10:
+        next_url = base_url+'GetCaseInformation.aspx?db=garfield&number=CF-2011-'+str(i)
+        print next_url
+        scrape_and_look_for_next_link(next_url)
 
 # ---------------------------------------------------------------------------
 # START HERE: define your starting URL - then 
@@ -128,7 +129,7 @@ base_url = 'http://www.oscn.net/dockets/'
 starting_url = urlparse.urljoin(base_url, 'GetCaseInformation.aspx?db=garfield&number=CF-2011-1')
 print starting_url
 global i
-for i in range(200,210):
+for i in range(1,10):
     #There are 743 cases but 468 appears to be the server request limit
     scrape_and_look_for_next_link(starting_url)     
     

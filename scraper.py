@@ -95,7 +95,7 @@ scrape_table(root)'''
 
 
 def Add_Case_No(next_link):
-    global next_link = 1
+    global next_link=1
     for i in range(1,744):
         next_link += i
     return next_link

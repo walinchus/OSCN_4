@@ -94,11 +94,11 @@ scrape_table(root)'''
 62 scrape_page(next_link)'''
 
 
-def addNumbers(num)
+'''def addNumbers(num)
     sum=0
     for i in range(0,num+1)
         sum=sum+i
-    return sum
+    return sum'''
 
 def Add_Case_No():
     for i in range(1,744):

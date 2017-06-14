@@ -100,13 +100,13 @@ scrape_table(root)'''
         sum=sum+i
     return sum'''
 
-def Add_Case_No():
+'''def Add_Case_No():
     for i in range(1,744):
         global next_link
         nextlink = 0
         next_link= next_link + i
     return next_link    
-    print next_link
+    print next_link'''
 
 def scrape_and_look_for_next_link(url):
     html = scraperwiki.scrape(url)
@@ -115,9 +115,12 @@ def scrape_and_look_for_next_link(url):
     scrape_table(root)
     #for next_link in range (1, 744):
         #print next_link
-    Add_Case_No()
-    print next_link
-    if next_link:
+    #Add_Case_No()
+    #print next_link
+    for i in range(1,744):
+        nextlink = 0
+        next_link= next_link + i 
+        print next_link
         next_url = base_url+'GetCaseInformation.aspx?db=garfield&number=CF-2011-'+str(next_link)
         print next_url
         scrape_and_look_for_next_link(next_url)

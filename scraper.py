@@ -28,7 +28,10 @@ def scrape_table(root):
             #idno=idno+1
             #record['ID'] = idno 
             print record, '------------'
-    rows = root.cssselect("table.Counts tr")
+    charges = root.cssselect("table.Counts")
+    record['Charges'] = charges[0].text_content()
+
+'''rows = root.cssselect("table.Counts tr")
     #create a record to hold the data
     #record = {}
     #for each row, loop through this
@@ -44,7 +47,7 @@ def scrape_table(root):
                 #idno=idno+1
                 #record['ID'] = idno 
                 print record, '------------'
-                # Save the record to the datastore - 'ID' is our unique key - 
+                # Save the record to the datastore - 'ID' is our unique key - '''
     scraperwiki.sqlite.save(['Date Filed and Judge'], record)
            
             

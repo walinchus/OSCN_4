@@ -93,6 +93,7 @@ scrape_table(root)'''
 61 #pass that new concatenated URL to a function, 'scrape_page', which is scripted above
 62 scrape_page(next_link)'''
 
+next_link = 0
 def Add_Case_No(next_link):
     next_link = 1
     for i in range(1,744):
@@ -119,7 +120,6 @@ def scrape_and_look_for_next_link(url):
 base_url = 'http://www.oscn.net/dockets/'
 starting_url = urlparse.urljoin(base_url, 'GetCaseInformation.aspx?db=garfield&number=CF-2011-1')
 print starting_url
-
 scrape_and_look_for_next_link(starting_url)     
     
     

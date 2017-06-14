@@ -109,6 +109,7 @@ scrape_table(root)'''
     print next_link'''
 
 def scrape_and_look_for_next_link(url):
+    next_link = 0
     for i in range(1,744):
         html = scraperwiki.scrape(url)
         #print html

@@ -46,7 +46,7 @@ def scrape_table(root):
                     print record, '------------'
                     # Save the record to the datastore - 'ID' is our unique key - '''
    #print 'ALL DATA: ', record
-   scraperwiki.sqlite.save(['Date Filed and Judge'], record)
+    scraperwiki.sqlite.save(['Date Filed and Judge'], record)
            
             
 

@@ -28,7 +28,7 @@ def scrape_table(root):
             #idno=idno+1
             #record['ID'] = idno 
             print record, '------------'
-    rows = root.cssselect("table.Counts td")
+    rows = root.cssselect("table.Counts tr")
     #create a record to hold the data
     #record = {}
     #for each row, loop through this

@@ -28,14 +28,15 @@ def scrape_table(root):
             #idno=idno+1
             #record['ID'] = idno 
             print record, '------------'
-    rows2 = root.cssselect("div.CountsContainer tr")
+    rows = root.cssselect("div.CountsContainer tr")
     #create a record to hold the data
     #record = {}
     #for each row, loop through this
-    for row2 in rows2:
+    for row in rows:
         #create a list of all cells <td> in that row
-        table_cells2 = row2.cssselect("td")
-        if table_cells2: 
+        table_cells = row.cssselect("td")
+        print table_cells
+        if table_cells: 
         #if there is a cell, record the contents in our dataset, the first cell [0] in 'recipient' and so on
             record['Charge'] = table_cells2.text_content()
             #record['Date Filed and Judge'] = table_cells[1].text_content()

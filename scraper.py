@@ -95,7 +95,7 @@ scrape_table(root)'''
 
 #def Add_Case_No(next_link):
 for next_link in range (0,744):
-    return next_link + 1
+    print next_link + 1
     print "the next case number is:", next_link
     next_link = 'GetCaseInformation.aspx?db=garfield&number=CF-2011-' + str(next_link)
 

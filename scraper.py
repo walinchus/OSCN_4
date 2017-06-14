@@ -106,10 +106,10 @@ def scrape_and_look_for_next_link(url):
     scrape_table(root)
     #for next_link in range (1, 744):
         #print next_link
-        if next_link:
-            next_url = base_url+str(next_link)
-            print next_url
-            scrape_and_look_for_next_link(next_url)
+    if next_link:
+        next_url = base_url+str(next_link)
+        print next_url
+        scrape_and_look_for_next_link(next_url)
 
 # ---------------------------------------------------------------------------
 # START HERE: define your starting URL - then 

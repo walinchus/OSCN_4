@@ -94,8 +94,7 @@ scrape_table(root)'''
 62 scrape_page(next_link)'''
 
 
-def Add_Case_No(next_link):
-    global next_link=1
+def Add_Case_No():
     for i in range(1,744):
         next_link += i
     return next_link
@@ -107,7 +106,7 @@ def scrape_and_look_for_next_link(url):
     scrape_table(root)
     #for next_link in range (1, 744):
         #print next_link
-    Add_Case_No(next_link)
+    Add_Case_No()
     if next_link:
       next_url = base_url+'GetCaseInformation.aspx?db=garfield&number=CF-2011-'+str(next_link)
       print next_url

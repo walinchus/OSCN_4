@@ -32,10 +32,10 @@ def scrape_table(root):
     #create a record to hold the data
     #record = {}
     #for each row, loop through this
-    for row in rows2:
+    for row in rows2[0:-1]:
         #create a list of all cells <td> in that row
         table_cells = row2.cssselect("td")
-        for table_cells(0:): 
+        if table_cells: 
         #if there is a cell, record the contents in our dataset, the first cell [0] in 'recipient' and so on
             record['Charge'] = table_cells.text_content()
             #record['Date Filed and Judge'] = table_cells[1].text_content()

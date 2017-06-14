@@ -67,7 +67,7 @@ def scrape_table(root):
                     #this line adds 1 to the ID no. we set at 0 earlier
                     #idno=idno+1
                     #record['ID'] = idno 
-                  print record, '------------'
+                print record, '------------'
                     # Save the record to the datastore - 'ID' is our unique key - '''
         print 'ALL DATA:', record
         scraperwiki.sqlite.save(['Date Filed and Judge'], record)

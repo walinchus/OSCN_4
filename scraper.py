@@ -116,6 +116,7 @@ def scrape_and_look_for_next_link(url):
     scrape_table(root)
     next_url = base_url+'GetCaseInformation.aspx?db=garfield&number=CF-2011-'+str(i)
     print next_url
+    i = (i + 1 )
     scrape_and_look_for_next_link(next_url)
 
 # ---------------------------------------------------------------------------

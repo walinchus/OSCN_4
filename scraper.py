@@ -32,7 +32,7 @@ def scrape_table(root):
     #create a record to hold the data
     #record = {}
     #for each row, loop through this
-    for row2 in rows2[0:)]:
+    for row2 in rows2:
         #create a list of all cells <td> in that row
         table_cells2 = row2.cssselect("td")
         if table_cells2: 

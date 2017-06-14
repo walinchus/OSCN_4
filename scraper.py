@@ -29,7 +29,7 @@ def scrape_table(root):
             #record['ID'] = idno 
             print record, '------------'
     charges = root.cssselect("table.Counts tr")
-    record['Charges'] = charges[0].text_content()
+    record['Charges'] = charges.text_content()
     scraperwiki.sqlite.save(['Date Filed and Judge'], record)
     
 '''rows = root.cssselect("table.Counts tr")

@@ -116,7 +116,6 @@ def scrape_and_look_for_next_link(url):
     scrape_table(root)
     next_url = base_url+'GetCaseInformation.aspx?db=garfield&number=CF-2011-'+str(i)
     print next_url
-    global i
     i = (i + 1)
     scrape_and_look_for_next_link(next_url)
 
@@ -127,6 +126,7 @@ def scrape_and_look_for_next_link(url):
 base_url = 'http://www.oscn.net/dockets/'
 starting_url = urlparse.urljoin(base_url, 'GetCaseInformation.aspx?db=garfield&number=CF-2011-1')
 print starting_url
+global i
 for i in range(1,744):
     scrape_and_look_for_next_link(starting_url)     
     

@@ -38,7 +38,30 @@ def scrape_table(root):
             if table_cells:
                 for EachCharge in table_cells:
                 #if there is a cell, record the contents in our dataset, the first cell [0] in 'recipient' and so on
-                    record['Charge'] = EachCharge.text_content() #table_cells[x].text_content()
+                    record['Charge1'] = EachCharge[0].text_content() 
+                    if EachCharge[1]
+                    record['Charge2'] = EachCharge[1].text_content()
+                    if EachCharge[2]
+                    record['Charge3'] = EachCharge[2].text_content()
+                    if EachCharge[3]
+                    record['Charge4'] = EachCharge[3].text_content()
+                    if EachCharge[4]
+                    record['Charge5'] = EachCharge[4].text_content()
+                    if EachCharge[5]
+                    record['Charge6'] = EachCharge[5].text_content()
+                    if EachCharge[6]
+                    record['Charge7'] = EachCharge[6].text_content()
+                    if EachCharge[7]
+                    record['Charge8'] = EachCharge[7].text_content()
+                    if EachCharge[8]
+                    record['Charge9'] = EachCharge[8].text_content()
+                    if EachCharge[9]
+                    record['Charge10'] = EachCharge[9].text_content()
+                    if EachCharge[10]
+                    record['Charge11'] = EachCharge[10].text_content()
+                    if EachCharge[11]
+                    record['Charge12'] = EachCharge[11].text_content()
+                    #table_cells[x].text_content()
                     #record['Date Filed and Judge'] = table_cells[1].text_content()
                     #this line adds 1 to the ID no. we set at 0 earlier
                     #idno=idno+1

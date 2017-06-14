@@ -82,21 +82,33 @@ print html
 root = lxml.html.fromstring(html)
 scrape_table(root)'''
 
-def Add_Case_No(next_link):
+
+case_numbers =['5237521','5244439','5237629','5237823','5234026']
+55 #go through the schoolIDs list above, and for each ID...
+56 for item in schoolIDs:
+57 #show it in the console
+58 print item
+59 #create a URL called 'next_link' which adds that ID to the end of the base_url variable
+60 next_link = base_url+item+'.html'
+61 #pass that new concatenated URL to a function, 'scrape_page', which is scripted above
+62 scrape_page(next_link)
+
+'''def Add_Case_No(next_link):
     return next_link + 1
     print "the next case number is:", next_link
-    next_link = 'GetCaseInformation.aspx?db=garfield&number=CF-2011-' + str(next_link)
+    next_link = 'GetCaseInformation.aspx?db=garfield&number=CF-2011-' + str(next_link)'''
 
 def scrape_and_look_for_next_link(url):
     html = scraperwiki.scrape(url)
     #print html
     root = lxml.html.fromstring(html)
     scrape_table(root)
-
-    if next_link < 744:
-        next_url = urlparse.urljoin(base_url, next_link)
-        print next_url
-        scrape_and_look_for_next_link(next_url)
+    for next_link in range (1, 744):
+        print next_link
+        if next_link:
+            next_url = base_url+'GetCaseInformation.aspx?db=garfield&number=CF-2011-'+str(next_link)
+            print next_url
+            scrape_and_look_for_next_link(next_url)
 
 # ---------------------------------------------------------------------------
 # START HERE: define your starting URL - then 

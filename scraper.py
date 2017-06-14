@@ -110,6 +110,7 @@ scrape_table(root)'''
 
 
 def scrape_and_look_for_next_link(url):
+    next_link=0
     for i in range(1,744):
         next_link +=1
         print next_link

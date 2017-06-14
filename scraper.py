@@ -94,6 +94,12 @@ scrape_table(root)'''
 62 scrape_page(next_link)'''
 
 
+def addNumbers(num)
+    sum=0
+    for i in range(0,num+1)
+        sum=sum+i
+    return sum
+
 def Add_Case_No():
     for i in range(1,744):
         global next_link
@@ -110,10 +116,11 @@ def scrape_and_look_for_next_link(url):
     #for next_link in range (1, 744):
         #print next_link
     Add_Case_No()
-    #if next_link:
-    next_url = base_url+'GetCaseInformation.aspx?db=garfield&number=CF-2011-'+str(next_link)
-    print next_url
-    #scrape_and_look_for_next_link(next_url)
+    print next_link
+        if next_link:
+        next_url = base_url+'GetCaseInformation.aspx?db=garfield&number=CF-2011-'+str(next_link)
+        print next_url
+        scrape_and_look_for_next_link(next_url)
 
 # ---------------------------------------------------------------------------
 # START HERE: define your starting URL - then 

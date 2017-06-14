@@ -108,14 +108,9 @@ scrape_table(root)'''
     return next_link    
     print next_link'''
 
-
+global nextlink
+nextlink=0
 def scrape_and_look_for_next_link(url):
-    
-        #for next_link in range (1, 744):
-            #print next_link
-        #Add_Case_No()
-        #print next_link
-    next_link=0
     for i in range(1,744):
         next_link +=1
         print next_link

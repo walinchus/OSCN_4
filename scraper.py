@@ -39,7 +39,7 @@ def scrape_table(root):
                 for EachCharge in table_cells:
                 #if there is a cell, record the contents in our dataset, the first cell [0] in 'recipient' and so on
                     record['Charge1'] = EachCharge[0].text_content() 
-                    if EachCharge[1]:
+                    if EachCharge[1] is not None:
                         record['Charge2'] = EachCharge[1].text_content()
                     if EachCharge[2]:
                         record['Charge3'] = EachCharge[2].text_content()

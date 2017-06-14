@@ -93,9 +93,9 @@ scrape_table(root)'''
 61 #pass that new concatenated URL to a function, 'scrape_page', which is scripted above
 62 scrape_page(next_link)'''
 
-next_link = 0
+
 def Add_Case_No(next_link):
-    next_link = 1
+    global next_link = 1
     for i in range(1,744):
         next_link += i
     return next_link

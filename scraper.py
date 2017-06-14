@@ -115,10 +115,11 @@ def scrape_and_look_for_next_link(url):
     root = lxml.html.fromstring(html)
     scrape_table(root)
     global i
-    next_url = base_url+'GetCaseInformation.aspx?db=garfield&number=CF-2011-'+str(i)
-    print next_url
-    i = (i + 1)
-    scrape_and_look_for_next_link(next_url)
+    for i in range(1, 10):
+      i = (i + 1)  
+      next_url = base_url+'GetCaseInformation.aspx?db=garfield&number=CF-2011-'+str(i)
+      print next_url
+      scrape_and_look_for_next_link(next_url)
 
 # ---------------------------------------------------------------------------
 # START HERE: define your starting URL - then 

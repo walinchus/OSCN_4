@@ -8,7 +8,7 @@ import urllib2
 import lxml.etree
 import mechanize
 
-next_link = 0
+#next_link = 0
 
 def scrape_table(root):
     #grab all table rows <tr> in table class="tblSearchResults"

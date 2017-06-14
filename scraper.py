@@ -104,11 +104,11 @@ def scrape_and_look_for_next_link(url):
     #for next_link in range (1, 744):
         #print next_link
     for next_link in range (0,744):
-        print next_link + 1
+        print int(next_link)+1
         print "the next case number is:", next_link
-        next_link = 'GetCaseInformation.aspx?db=garfield&number=CF-2011-' + str(next_link)
+        #next_link = 'GetCaseInformation.aspx?db=garfield&number=CF-2011-' + str(next_link)
         if next_link:
-            next_url = base_url+str(next_link)
+            next_url = base_url+'GetCaseInformation.aspx?db=garfield&number=CF-2011-'+str(next_link)
             print next_url
             scrape_and_look_for_next_link(next_url)
 

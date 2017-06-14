@@ -28,28 +28,26 @@ def scrape_table(root):
             #idno=idno+1
             #record['ID'] = idno 
             print record, '------------'
-    charges = root.cssselect("table.Counts tr")
-    record['Charges'] = charges.text_content()
+        rows = root.cssselect("table.Counts tr")
+        #create a record to hold the data
+        #record = {}
+        #for each row, loop through this
+        for row in rows:
+            #create a list of all cells <td> in that row
+            table_cells = row.cssselect("td")
+            if table_cells:
+                for EachCharge in table_cells:
+                #if there is a cell, record the contents in our dataset, the first cell [0] in 'recipient' and so on
+                    record['Charge'] = EachCharge.text_content() #table_cells[x].text_content()
+                    #record['Date Filed and Judge'] = table_cells[1].text_content()
+                    #this line adds 1 to the ID no. we set at 0 earlier
+                    #idno=idno+1
+                    #record['ID'] = idno 
+                    print record, '------------'
+                    # Save the record to the datastore - 'ID' is our unique key - '''
+                   record['Charges'] = charges.text_content()
+    print 'ALL DATA: ', record
     scraperwiki.sqlite.save(['Date Filed and Judge'], record)
-    
-'''rows = root.cssselect("table.Counts tr")
-    #create a record to hold the data
-    #record = {}
-    #for each row, loop through this
-    for row in rows:
-        #create a list of all cells <td> in that row
-        table_cells = row.cssselect("td")
-        if table_cells:
-            for EachCharge in table_cells:
-            #if there is a cell, record the contents in our dataset, the first cell [0] in 'recipient' and so on
-                record['Charge'] = EachCharge.text_content() #table_cells[x].text_content()
-                #record['Date Filed and Judge'] = table_cells[1].text_content()
-                #this line adds 1 to the ID no. we set at 0 earlier
-                #idno=idno+1
-                #record['ID'] = idno 
-                print record, '------------'
-                # Save the record to the datastore - 'ID' is our unique key - '''
-    
            
             
 

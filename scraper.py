@@ -11,10 +11,10 @@ import mechanize
 #next_link = 0
 
 def scrape_table(root):
-    #grab all table rows <tr> in table class="tblSearchResults"
-    rows = root.cssselect("table.caseStyle tr")
     #create a record to hold the data
     record = {}
+    #grab all table rows <tr> in table class="tblSearchResults"
+    rows = root.cssselect("table.caseStyle tr")
     #for each row, loop through this
     for row in rows:
         #create a list of all cells <td> in that row
@@ -32,7 +32,7 @@ def scrape_table(root):
     #create a record to hold the data
     #record = {}
     #for each row, loop through this
-    for row in rows2[0:-1]:
+    for row2 in rows2[0:-1]:
         #create a list of all cells <td> in that row
         table_cells = row2.cssselect("td")
         if table_cells: 

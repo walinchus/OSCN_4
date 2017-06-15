@@ -33,6 +33,7 @@ def scrape_table(root):
         print "total number of counts:", countstotal
         #countsrange = range(0, countstotal+1)
         #for count in countsrange:
+        id=0
         for count in counts:
             id+=1
             if counts: 

@@ -28,7 +28,7 @@ def scrape_table(root):
             #idno=idno+1
             #record['ID'] = idno 
             print record, '------------'
-        counts = root.cssselect("div.CountsContainer td")
+        counts = root.cssselect("div.CountsContainer")
         print counts.text_content()
         '''countstotal = len(counts)
         print "total number of counts:", countstotal

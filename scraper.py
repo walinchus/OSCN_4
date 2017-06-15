@@ -31,26 +31,29 @@ def scrape_table(root):
         counts = root.cssselect("div.sized div.CountsContainer")
         countstotal = len(counts)
         print "total number of counts:", countstotal
-        print counts
-        '''countsrange = range(0, countstotal+1)
-        for count in countsrange:
-            
-            rows = root.cssselect("div.CountsContainer tr")
+        #countsrange = range(0, countstotal+1)
+        #for count in countsrange:
+        for count in counts:
+            rows = count.cssselect('div.CountsContainer tr')
+            if rows:
             id = 0
-            rowstotal = len(rows)
-            rowsrange = range(0,rowstotal+1)
+            #rowstotal = len(rows)
+            #rowsrange = range(0,rowstotal+1)
             #create a record to hold the data
             #record = {}
             #for each row, loop through this
-            for rownum in rowsrange:
-                print "scraping row", rownum
+            #for rownum in rowsrange:
+            for row in rows: 
+                #print "scraping row", rownum
                 #create a list of all cells <td> in that row
                 table_cells = row.cssselect("td")
-                record['Charge'+str(rownum)] = table_cells[rownum].text_content()
+                record['Charge Number:'] = table_cells[0].text_content()
+                record['Count Description:'] = table_cells[1].text_content()
+                record['Outcome:'] = table_cells[3].textcontent()
                 print record, '------------'
                         # Save the record to the datastore - 'ID' is our unique key - '''
-        print 'ALL DATA:', record
-        scraperwiki.sqlite.save(['Date Filed and Judge'], record)
+    print 'ALL DATA:', record
+    scraperwiki.sqlite.save(['Date Filed and Judge'], record)
            
             
 

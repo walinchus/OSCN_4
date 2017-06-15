@@ -28,21 +28,25 @@ def scrape_table(root):
             #idno=idno+1
             #record['ID'] = idno 
             print record, '------------'
-        rows = root.cssselect("table.Counts tr")
-        id = 0
-        rowstotal = len(rows)
-        print 'total number of counts:', rowstotal
-        rowsrange = range(0,rowstotal)
-        #create a record to hold the data
-        #record = {}
-        #for each row, loop through this
-        for rownum in rowsrange:
-            print "scraping row", rownum
-            #create a list of all cells <td> in that row
-            table_cells = row.cssselect("td")
-            record['Charge'+str(rownum)] = table_cells[rownum].text_content()
-            print record, '------------'
-                    # Save the record to the datastore - 'ID' is our unique key - '''
+        counts = root.cssselect("div.sized div.CountsContainer")
+        countstotal = len(counts)
+        print "total number of counts:", countstotal
+        countsrange = range(0, countstotal+1)
+        for counts in countsrange:
+            rows = root.cssselect("div.CountsContainer tr")
+            id = 0
+            rowstotal = len(rows)
+            rowsrange = range(0,rowstotal+1)
+            #create a record to hold the data
+            #record = {}
+            #for each row, loop through this
+            for rownum in rowsrange:
+                print "scraping row", rownum
+                #create a list of all cells <td> in that row
+                table_cells = row.cssselect("td")
+                record['Charge'+str(rownum)+1] = table_cells[rownum].text_content()
+                print record, '------------'
+                        # Save the record to the datastore - 'ID' is our unique key - '''
         print 'ALL DATA:', record
         scraperwiki.sqlite.save(['Date Filed and Judge'], record)
            

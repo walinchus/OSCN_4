@@ -49,7 +49,7 @@ def scrape_table(root):
                     table_cells = row.cssselect("td")
                     record['Charge Number:'] = table_cells[0].text_content()
                     record['Count Description:'] = table_cells[1].text_content()
-                    record['Outcome:'] = table_cells[2].textcontent()
+                    #record['Outcome:'] = table_cells[2].textcontent()
                     print record, '------------'
                         # Save the record to the datastore - 'ID' is our unique key - '''
     print 'ALL DATA:', record

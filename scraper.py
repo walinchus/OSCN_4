@@ -32,9 +32,9 @@ def scrape_table(root):
         countstotal = len(counts)
         print "total number of counts:", countstotal
         countsrange = range(0, countstotal+1)
-        for count in countsrange:
+        for counts in countsrange:
         #for count in counts:
-            rows = count.cssselect('div.CountsContainer tr')
+            rows = counts.cssselect('div.CountsContainer tr')
             if rows:
                 id = 0
                 #rowstotal = len(rows)

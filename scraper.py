@@ -30,16 +30,17 @@ def scrape_table(root):
             print record, '------------'
         rows = root.cssselect("table.Counts tr")
         id = 0
-        rowstotal = rows.nrows
+        rowstotal = len(rows)
+        print 'total number of counts:', rowstotal
         rowsrange = range(0,rowstotal)
         #create a record to hold the data
         #record = {}
         #for each row, loop through this
         for rownum in rowsrange:
-            print "scraping row", rowsnum
+            print "scraping row", rownum
             #create a list of all cells <td> in that row
             table_cells = row.cssselect("td")
-            record['Charge'+rowsnum] = table_cells[rowsnum].text_content()
+            record['Charge'+rowsnum] = table_cells[rownum].text_content()
             print record, '------------'
                     # Save the record to the datastore - 'ID' is our unique key - '''
         print 'ALL DATA:', record

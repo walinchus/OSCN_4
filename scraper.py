@@ -37,7 +37,7 @@ def scrape_table(root):
         for count in counts:
             rows = count.cssselect('div.CountsContainer tr')
             print rows
-            '''if rows:
+            if rows:
                 id = 0
                 #rowstotal = len(rows)
                 #rowsrange = range(0,rowstotal+1)
@@ -49,7 +49,8 @@ def scrape_table(root):
                     #print "scraping row", rownum
                     #create a list of all cells <td> in that row
                     table_cells = row.cssselect("td")
-                    record['Charges'] = table_cells.text_content()
+                    print table_cells
+                    #record['Charges'] = table_cells.text_content()
                     #record['Count Description:'] = table_cells[1].text_content()
                     #record['Outcome:'] = table_cells[2].textcontent()
                     print record, '------------'

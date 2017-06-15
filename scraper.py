@@ -40,7 +40,7 @@ def scrape_table(root):
             print "scraping row", rownum
             #create a list of all cells <td> in that row
             table_cells = row.cssselect("td")
-            record['Charge'+rowsnum] = table_cells[rownum].text_content()
+            record['Charge'+rownum] = table_cells[rownum].text_content()
             print record, '------------'
                     # Save the record to the datastore - 'ID' is our unique key - '''
         print 'ALL DATA:', record

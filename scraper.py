@@ -29,13 +29,12 @@ def scrape_table(root):
             #record['ID'] = idno 
             print record, '------------'
         counts = root.cssselect("div.CountsContainer")
-        print counts.text_content()
-        '''countstotal = len(counts)
+        countstotal = len(counts)
         print "total number of counts:", countstotal
         #countsrange = range(0, countstotal+1)
         #for count in countsrange:
         for count in counts:
-            rows = count.cssselect('tr')
+            rows = count.cssselect('div.CountsContainer tr')
             if rows:
                 id = 0
                 #rowstotal = len(rows)
@@ -52,7 +51,7 @@ def scrape_table(root):
                     #print table_cells
                         record['Charges'] = table_cells[0].text_content()
                         record['Count Description:'] = table_cells[1].text_content()
-                        record['Outcome:'] = table_cells[3].text_content()
+                        #record['Outcome:'] = table_cells[3].text_content()
                         print record, '------------'
                         # Save the record to the datastore - 'ID' is our unique key - '''
     print 'ALL DATA:', record

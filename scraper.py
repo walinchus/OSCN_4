@@ -44,7 +44,7 @@ def scrape_table(root):
                 #for each row, loop through this
                 #for rownum in rowsrange:
                 for row in rows:
-                    record['Crime and Outcome'] = row[0].text_content()
+                    record['Crime and Outcome'] = row[1].text_content()
                     #print "scraping row", rownum
                     #create a list of all cells <td> in that row
                     '''table_cells = row.cssselect("td")

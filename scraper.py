@@ -45,8 +45,8 @@ def scrape_table(root):
                 #for rownum in rowsrange:
                 for row in rows:
                     id + 1 
-                    record['Count'+str(id)+'as filed:'] = row[1].text_content()
-                    record['Count'+str(id)+'as disposed:'] = row[2].text_content()
+                    record['Count'+str(id)'] = row[1].text_content()
+                    #record['Count'+str(id)+'as disposed:'] = row[2].text_content()
                     #print "scraping row", rownum
                     #create a list of all cells <td> in that row
                     '''table_cells = row.cssselect("td")

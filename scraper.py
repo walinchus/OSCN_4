@@ -47,11 +47,12 @@ def scrape_table(root):
                     #print "scraping row", rownum
                     #create a list of all cells <td> in that row
                     table_cells = row.cssselect("td")
+                    if table_cells:
                     #print table_cells
-                    record['Charges'] = table_cells[0].text_content()
-                    record['Count Description:'] = table_cells[1].text_content()
-                    record['Outcome:'] = table_cells[3].text_content()
-                    print record, '------------'
+                        record['Charges'] = table_cells[0].text_content()
+                        record['Count Description:'] = table_cells[1].text_content()
+                        record['Outcome:'] = table_cells[3].text_content()
+                        print record, '------------'
                         # Save the record to the datastore - 'ID' is our unique key - '''
     print 'ALL DATA:', record
     scraperwiki.sqlite.save(['Date Filed and Judge'], record)

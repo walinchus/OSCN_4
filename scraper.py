@@ -29,7 +29,7 @@ def scrape_table(root):
             #record['ID'] = idno 
             print record, '------------'
         counts = root.cssselect("div.CountsContainer td")
-        print counts.text_content
+        print counts.text_content()
         '''countstotal = len(counts)
         print "total number of counts:", countstotal
         #countsrange = range(0, countstotal+1)

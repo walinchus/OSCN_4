@@ -29,15 +29,20 @@ def scrape_table(root):
             #record['ID'] = idno 
             print record, '------------'
         rows = root.cssselect("table.Counts tr")
+        id = 0
+        rowstotal = rows.nrows
+        rowsrange = range(0,rowstotal)
         #create a record to hold the data
         #record = {}
         #for each row, loop through this
-        for row in rows:
+        for rownum in rowsrange:
+            print "scraping row", rowsnum
             #create a list of all cells <td> in that row
             table_cells = row.cssselect("td")
-            if table_cells:
-                record['Charge1'] = table_cells[0].text_content()
-                record['Charge2'] = table_cells[1].text_content()
+            record['Charge'+rowsnum] = table_cells[rowsnum].text_content()
+            #if table_cells:
+                #record['Charge1'] = table_cells[0].text_content()
+                #record['Charge2'] = table_cells[1].text_content()
                 '''for EachCharge in table_cells:
                 #if there is a cell, record the contents in our dataset, the first cell [0] in 'recipient' and so on
                     record['Charge1'] = EachCharge[0].text_content() 

@@ -43,10 +43,11 @@ def scrape_table(root):
                 #record = {}
                 #for each row, loop through this
                 #for rownum in rowsrange:
-                for row in rows: 
+                for row in rows:
+                    record['Crime and Outcome'] = row.text_content()
                     #print "scraping row", rownum
                     #create a list of all cells <td> in that row
-                    table_cells = row.cssselect("td")
+                    '''table_cells = row.cssselect("td")
                     if table_cells:
                     #print table_cells
                         record['Charges'] = table_cells[0].text_content()
